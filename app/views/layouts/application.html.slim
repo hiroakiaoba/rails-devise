@@ -8,6 +8,15 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    header
+      nav
+        - if developer_signed_in?
+          strong = link_to current_developer.username, pages_show_path
+          = link_to 'プロフィール変更  ', edit_developer_registration_path
+          = link_to 'ログアウト', destroy_developer_session_path, method: :delete
+        - else
+          = link_to 'サインアップ', new_developer_registration_path
+          = link_to 'ログイン', new_developer_session_path
     p.notice
       = notice
     p.alert

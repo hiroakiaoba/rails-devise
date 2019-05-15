@@ -1,4 +1,15 @@
 h1
-  | Pages#index
+  | ようこそ、indexページです。
+h3.piyo.poiy#huga
+  |
+    ok ok
+    ok ok
+#test idがtest
+.test class名がtest
+
 p
   | Find me in app/views/pages/index.html.erb
+- if developer_signed_in?
+  li = link_to 'イベントを作る', '/'
+- else
+  li = link_to 'ログインしてないよ！', '/'
